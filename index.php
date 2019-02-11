@@ -85,3 +85,20 @@ $statement->bindParam(':new', $new, PDO::PARAM_STR);
 //Execute
 $statement->execute();
 
+
+
+//Define the query
+$sql = "UPDATE pets SET name = :new WHERE name = :old";
+
+//Prepare the statement
+$statement = $dbh->prepare($sql);
+
+//Bind the parameters
+$old = 'kotik';
+$new = 'Leo';
+$statement->bindParam(':old', $old, PDO::PARAM_STR);
+$statement->bindParam(':new', $new, PDO::PARAM_STR);
+
+//Execute
+$statement->execute();
+
